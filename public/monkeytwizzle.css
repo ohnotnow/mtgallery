@@ -1,0 +1,133 @@
+
+.photobox {
+    border: 1px dashed gray;
+}
+#menu {
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    font-family: 'Futura', 'Questrial', sans-serif;
+    padding-top: 1em;
+    opacity: 0.5;
+}
+#menu a {
+    color: white;
+    text-decoration: none;
+    text-shadow: 10px 10px 10px #000;
+}
+#menu a:hover {
+    opacity: 0.8;
+}
+#menu ul, #menu li {
+    display: inline;
+}
+#menu ul li:before {
+ content: '\2219';
+}
+#menu ul li.last:after {
+ content: ". ";
+}
+.fullBg {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+#landing {
+    color: rgb(200,200,200);
+    font-size: 2em;
+    text-align: center;
+    padding-top: 1em;
+    font-family: 'Futura', 'Questrial', sans-serif;
+    /*text-shadow: 10px 10px 10px #ccc; */
+}
+#landing a {
+    color: rgb(200,200,200);
+    text-decoration: none;
+}
+#landing h3 {
+    font-size: 3em;
+    color: rgb(100,100,100);
+}
+#bloglanding {
+    color: rgb(200,200,200);
+    font-size: 2em;
+    text-align: center;
+    font-family: 'Futura', 'Questrial', sans-serif;
+}
+#bloglanding a {
+    color: rgb(200,200,200);
+    text-decoration: none;
+}
+#bloglanding h3 {
+    font-size: 3em;
+    color: rgb(100,100,100);
+}
+.publicblog {
+    color: rgb(200,200,200);
+    font-family: 'Futura', 'Questrial', sans-serif;
+    text-align: justify;
+    text-justify: inter-word;
+    border-top: 1px dashed gray;
+    margin-top: 2em;
+    width: 500px ;
+    margin-left: auto ;
+    margin-right: auto ;
+}
+.publicblog a {
+    color: rgb(200,200,200);
+    text-decoration: none;
+}
+.publicblog a:hover {
+    opacity: 0.9;
+    text-decoration: underline;
+}
+.publicblogdate {
+    text-align: right;
+    font-size: 0.5em;
+    opacity: 0.5;
+}
+.blurb {
+    color: rgb(200,200,200);
+    font-family: 'Futura', 'Questrial', sans-serif;
+    text-align: justify;
+    text-justify: inter-word;
+    border-top: 1px dashed gray;
+    margin-top: 2em;
+    width: 500px ;
+    margin-left: auto ;
+    margin-right: auto ;
+}
+
+.tint {
+    position: relative;
+    float: left;
+}
+
+.tint:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: none;
+    -moz-transition: background .3s linear;
+    -webkit-transition: background .3s linear;
+    -o-transition: background .3s linear;
+    transition: background .3s linear;
+}
+
+.tint:hover:before {
+    background: rgba(255,0,0, 0.3);
+}
+
+.deleteblogphoto img {
+    border: 2px solid white;
+}
+.deleteblogphoto:hover img {
+    border: 2px solid red;
+}
