@@ -1,5 +1,7 @@
 ## Gallery & Blog code for my hobby website
 
+NB. This is a work in progress.
+
 This is the code I use to run my hobby website.  It's written in PHP and uses
 the [Laravel](http://laravel.com/) framework.  There isn't much in the way
 of validation/error-checking etc as it's "just for me".
