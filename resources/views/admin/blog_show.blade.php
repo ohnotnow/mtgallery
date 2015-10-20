@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-            <h3>Blog <a href="/admin/blog/{{ $blog->id }}/edit">{{ $blog->title }}</a></h3>
+            <h3>Blog <a href="{!! route('admin.edit_blog', ['id' => $blog->id]) !!}">{{ $blog->title }}</a></h3>
             <div class="blog_body">
                 {{ $blog->body }}
             </div>

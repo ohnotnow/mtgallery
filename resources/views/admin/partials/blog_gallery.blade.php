@@ -3,7 +3,7 @@
         <div class="row">
         @foreach($set as $photo)
             <div class="col-md-3">
-                <a href="/admin/blog/{{ $blog->id }}/deletephoto/{{ $photo->id }}" id="delete_photo_{{ $photo->id }}" class="deleteblogphoto">
+                <a href="{!! route('admin.delete_photo_from_blog', ['id' => $blog->id, 'photo_id' => $photo->id]) !!}" id="delete_photo_{{ $photo->id }}" class="deleteblogphoto">
                     <img src="{!! asset($photo->thumbnailPath()) !!}" />
                 </a>
             </div>
