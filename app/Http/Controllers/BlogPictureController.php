@@ -38,9 +38,7 @@ class BlogPictureController extends Controller
     public function destroy($blogId, $id)
     {
         $photo = BlogPicture::findOrFail($id);
-        if (file_exists($photo->imagePath())) {
-            unlink($photo->imagePath());
-        }
+        $photo->removeFile();
         $photo->delete();
         return redirect('/admin/blog');
     }
