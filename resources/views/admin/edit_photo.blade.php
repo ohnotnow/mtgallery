@@ -31,7 +31,7 @@
     </div>
 </div>
 <script>
-    $(document).ready(function () {
+    document.addEventListener('DOMContentLoaded', function(){
         $('#gallery_select').select2();
     });
 </script>
