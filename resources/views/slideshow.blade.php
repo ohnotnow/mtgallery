@@ -4,13 +4,7 @@
         {!! env('APP_TITLE') !!}
         {{ $pageTitle or '' }}
     </title>
-    <script src="{!! asset('jquery.js') !!}"></script>
-    <script src="{!! asset('supersized/slideshow/js/supersized.3.2.7.min.js') !!}"></script>
-    <script src="{!! asset('supersized/slideshow/theme/supersized.shutter.min.js') !!}"></script>
-    <script type="text/javascript" src="jquery.easing.min.js"></script>
-    <link rel="stylesheet" href="{!! asset('supersized/slideshow/css/supersized.css') !!}">
-    <link rel="stylesheet" href="{!! asset('supersized/slideshow/theme/supersized.shutter.css') !!}">
-    <link rel="stylesheet" href="{!! asset('monkeytwizzle.css') !!}">
+    <link rel="stylesheet" href="{!! asset('slideshow.css') !!}">
 </head>
 <body>
 <!--Thumbnail Navigation-->
@@ -41,6 +35,7 @@
         </div>
     </div>
 </body>
+<script src="{!! asset('slideshow.js') !!}"></script>
 <script type="text/javascript">
             jQuery(function($){
                 $.supersized({

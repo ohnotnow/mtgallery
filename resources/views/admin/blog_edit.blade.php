@@ -26,5 +26,4 @@
         {!! Form::close() !!}
     </div>
 </div>
-<script src="{!! asset('dropzone.js') !!}"></script>
 @endsection

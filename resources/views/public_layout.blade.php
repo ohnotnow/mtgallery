@@ -1,13 +1,13 @@
 <html>
 <head>
     <title>{!! env('APP_TITLE') !!}</title>
-    <script src="{!! asset('public.js') !!}"></script>
     <link rel="stylesheet" href="{!! asset('public.css') !!}">
     <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 </head>
 <body>
     @yield('content')
 </body>
+<script src="{!! asset('public.js') !!}"></script>
 <script>
 $(document).ready(function() {
     var config = new shinejs.Config({

@@ -12,5 +12,4 @@
         @include('admin.partials.blog_gallery')
     </div>
 </div>
-<script src="{!! asset('dropzone.js') !!}"></script>
 @endsection

@@ -11,5 +11,4 @@
         @include('admin.partial_index_photographs')
     </div>
 </div>
-<script src="{!! asset('dropzone.js') !!}"></script>
 @endsection
