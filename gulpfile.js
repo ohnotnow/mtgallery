@@ -12,5 +12,33 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.scripts([
+        'jquery.js',
+        'jquery.easing.min.js',
+        'lightbox.min.js',
+        'shine.min.js',
+	'supersized.3.2.7.min.js'
+    ], './public/public.js');
+    mix.scripts([
+	'jquery.js',
+	'bootstrap.min.js',
+	'dropzone.js',
+	'select2.min.js',
+    ], './public/admin.js');
+    mix.styles(
+	'public.css',
+	'monkeytwizzle.css',
+	'lightbox.css'
+    ], './public/public.css');
+    mix.styles(
+	'monkeytwizzle.css',
+	'lightbox.css',
+	'supersized.css'
+    ], './public/slideshow.css');
+    mix.styles([
+	'monkeytwizzle.css',
+	'bootstrap.css',
+	'dropzone.css',
+	'select2.min.css'
+    ], './public/admin.css');
 });
