@@ -73,9 +73,9 @@ class BlogController extends Controller
         $blog = new Blog;
         $blog->title = $request->input('title');
         $blog->body = $request->input('body');
-        $blog->slug = str_slug(date('d-m-Y-') . $blog->title);
+        $blog->slug = $blog->createSlug();
         $blog->save();
-        return redirect('/admin/blog');
+        return redirect()->route('admin.show_blog', $blog->id);
     }
 
     /**
@@ -114,9 +114,9 @@ class BlogController extends Controller
         $blog = Blog::findOrFail($id);
         $blog->title = $request->input('title');
         $blog->body = $request->input('body');
-        $blog->slug = str_slug($blog->created_at->format('d-m-Y-') . $blog->title);
+        $blog->slug = $blog->createSlug();
         $blog->save();
-        return redirect('/admin/blog');
+        return redirect()->route('admin.show_blog', $blog->id);
     }
 
     /**
@@ -128,11 +128,8 @@ class BlogController extends Controller
     public function destroy($id)
     {
         $blog = Blog::findOrFail($id);
-        foreach ($blog->pictures as $picture) {
-            $picture->removeFile();
-            $picture->delete();
-        }
+        $blog->removePictures();
         $blog->delete();
-        return redirect('/admin/blog');
+        return redirect()->route('admin.index_blogs');
     }
 }

@@ -40,7 +40,7 @@ class GalleryController extends Controller
         $gallery->name = $name;
         $gallery->slug = str_slug($name);
         $gallery->save();
-        return redirect('/admin');
+        return redirect()->route('admin.show_gallery', $gallery->id);
     }
 
     /**
@@ -84,7 +84,7 @@ class GalleryController extends Controller
         $gallery->name = $name;
         $gallery->slug = str_slug($name);
         $gallery->save();
-        return redirect('/admin/gallery/' . $gallery->id);
+        return redirect()->route('admin.show_gallery', $gallery->id);
     }
 
     /**
@@ -96,7 +96,7 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         Gallery::destroy($id);
-        return redirect('/admin');
+        return redirect()->route('admin.dashboard');
     }
 
     /*** Public facing stuff ***/
@@ -130,6 +130,11 @@ class GalleryController extends Controller
         return view('slideshow', compact('json', 'galleries', 'pageTitle'));
     }
 
+    /**
+     * Transform a collection of photos into a JSON array suitable for the 'supersized' JS gallery script
+     * @param  Collection $photos Collection of photos
+     * @return string         JSON encoded array
+     */
     private function getPhotosAsJson($photos)
     {
         $photosArray = [];

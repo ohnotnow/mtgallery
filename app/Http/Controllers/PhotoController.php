@@ -63,9 +63,9 @@ class PhotoController extends Controller
     {
         $photo = Photo::findOrFail($id);
         $photo->name = $request->input('name');
-        $photo->galleries()->sync($request->input('galleries'));
+        $photo->attachToGalleries($request->input('galleries'));
         $photo->save();
-        return redirect('/admin/photo');
+        return redirect()->route('admin.index_photos');
     }
 
     /**
@@ -77,10 +77,8 @@ class PhotoController extends Controller
     public function destroy($id)
     {
         $photo = Photo::findOrFail($id);
-        if (file_exists($photo->fullPath())) {
-            unlink($photo->fullPath());
-        }
+        $photo->removeFile();
         $photo->delete();
-        return redirect('/admin/photo');
+        return redirect()->route('admin.index_photos');
     }
 }
