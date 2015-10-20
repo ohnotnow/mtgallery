@@ -33,7 +33,7 @@ class AdminCanCreateEditDeleteIndexABlogTest extends TestCase
              ->type('TESTEROO', 'title')
              ->type('WHATEVAH', 'body')
              ->press('submit')
-             ->see('List of Blog Entries')
+             ->see("Blog")
              ->see('TESTEROO');
     }
 
@@ -53,7 +53,7 @@ class AdminCanCreateEditDeleteIndexABlogTest extends TestCase
              ->type('AHAHAHAHAH', 'title')
              ->type('WHATEVAH', 'body')
              ->press('submit')
-             ->see('List of Blog Entries')
+             ->see('Blog')
              ->see('AHAHAHAHAH')
              ->dontSee($blog->title);
     }

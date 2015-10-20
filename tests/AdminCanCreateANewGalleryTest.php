@@ -20,7 +20,7 @@ class AdminCanCreateANewGalleryTest extends TestCase
              ->see('New Gallery')
              ->type('TESTGALLERY', 'name')
              ->press('submit')
-             ->see('Current Galleries')
+             ->see('Photographs in')
              ->see('TESTGALLERY');
     }
 
