@@ -94,4 +94,19 @@ class Photo extends Model
             $constraint->upsize();
         })->save($this->makeThumbnailFilename());
     }
+
+    public function removeFile()
+    {
+        if (file_exists($this->fullPath())) {
+            unlink($this->fullPath());
+        }
+    }
+
+    public function attachToGalleries($galleryList)
+    {
+        if (!$galleryList) {
+            $galleryList = [];
+        }
+        $this->galleries()->sync($galleryList);
+    }
 }

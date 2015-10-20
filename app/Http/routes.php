@@ -15,28 +15,28 @@ Route::post('/auth/login', 'Auth\AuthController@postLogin');
 Route::get('/auth/logout', 'Auth\AuthController@getLogout');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
-    Route::get('/', 'AdminController@dashboard');
+    Route::get('/', ['as' => 'admin.dashboard', 'AdminController@dashboard']);
 
-    Route::get('/gallery/add', 'GalleryController@create');
-    Route::post('/gallery/add', 'GalleryController@store');
-    Route::get('/gallery/{id}', 'GalleryController@show');
-    Route::get('/gallery/{id}/edit', 'GalleryController@edit');
-    Route::post('/gallery/{id}/edit', 'GalleryController@update');
-    Route::delete('/gallery/{id}', 'GalleryController@destroy');
+    Route::get('/gallery/add', ['as' => 'admin.add_gallery', 'GalleryController@create']);
+    Route::post('/gallery/add', ['as' => 'admin.create_gallery', 'GalleryController@store']);
+    Route::get('/gallery/{id}', ['as' => 'admin.show_gallery', 'GalleryController@show']);
+    Route::get('/gallery/{id}/edit', ['as' => 'admin.edit_gallery', 'GalleryController@edit']);
+    Route::post('/gallery/{id}/edit', ['as' => 'admin.update_gallery', 'GalleryController@update']);
+    Route::delete('/gallery/{id}', ['as' => 'admin.delete_gallery', 'GalleryController@destroy']);
 
-    Route::get('/photo', 'PhotoController@index');
-    Route::post('/photo', 'PhotoController@store');
-    Route::delete('/photo/{id}', 'PhotoController@destroy');
-    Route::get('/photo/{id}/edit', 'PhotoController@edit');
-    Route::post('/photo/{id}/edit', 'PhotoController@update');
+    Route::get('/photo', ['as' => 'admin.index_photos', 'PhotoController@index']);
+    Route::post('/photo', ['as' => 'admin.create_photo', 'PhotoController@store']);
+    Route::delete('/photo/{id}', ['as' => 'admin.delete_photo', 'PhotoController@destroy']);
+    Route::get('/photo/{id}/edit', ['as' => 'admin.edit_photo', 'PhotoController@edit']);
+    Route::post('/photo/{id}/edit', ['as' => 'admin.update_photo', 'PhotoController@update']);
 
-    Route::get('/blog', 'BlogController@index');
-    Route::get('/blog/add', 'BlogController@create');
-    Route::post('/blog/add', 'BlogController@store');
-    Route::get('/blog/{id}', 'BlogController@show');
-    Route::post('/blog/{id}/addphoto', 'BlogPictureController@store');
-    Route::get('/blog/{id}/deletephoto/{photo_id}', 'BlogPictureController@destroy');
-    Route::get('/blog/{id}/edit', 'BlogController@edit');
-    Route::post('/blog/{id}/edit', 'BlogController@update');
-    Route::get('/blog/{id}/delete', 'BlogController@destroy');
+    Route::get('/blog', ['as' => 'admin.index_blogs', 'BlogController@index']);
+    Route::get('/blog/add', ['as' => 'admin.add_blog', 'BlogController@create']);
+    Route::post('/blog/add', ['as' => 'admin.create_blog', 'BlogController@store']);
+    Route::get('/blog/{id}', ['as' => 'admin.show_blog', 'BlogController@show']);
+    Route::post('/blog/{id}/addphoto', ['as' => 'admin.add_photo_to_blog', 'BlogPictureController@store']);
+    Route::get('/blog/{id}/deletephoto/{photo_id}', ['as' => 'admin.delete_photo_from_blog', 'BlogPictureController@destroy']);
+    Route::get('/blog/{id}/edit', ['as' => 'admin.edit_blog', 'BlogController@edit']);
+    Route::post('/blog/{id}/edit', ['as' => 'admin.update_blog', 'BlogController@update']);
+    Route::get('/blog/{id}/delete', ['as' => 'admin.delete_blog', 'BlogController@destroy']);
 });
