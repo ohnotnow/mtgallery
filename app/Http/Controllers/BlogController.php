@@ -50,7 +50,7 @@ class BlogController extends Controller
         if (!$feed->isCached()) {
             $blogs = Blog::orderBy('created_at', 'desc')->get();
             $feed->title = env('APP_TITLE') . ' - Blog';
-            $feed->description = 'Blog about Monkeytwizzle photography';
+            $feed->description = env('BLOG_DESCRIPTION');
             $feed->link = route('blog.rss');
             $feed->setDateFormat('datetime');
             $feed->pubdate = $blogs[0]->created_at;

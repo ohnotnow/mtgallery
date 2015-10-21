@@ -7,11 +7,26 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class BlogPicture extends Model
 {
-    protected $baseDir = 'mt_photos/';
 
     public function blog()
     {
         return $this->belongsTo(\App\Blog::class);
+    }
+
+    /**
+     * Get the directory in public/ that we will upload images too via the .env file
+     * @return string
+     */
+    public function baseDir()
+    {
+        $dir = env('IMAGE_DIR');
+        if (!$dir) {
+            abort(501, 'No IMAGE_DIR set');
+        }
+        if (!preg_match('/\/$/', $dir)) {
+            $dir = "$dir/";
+        }
+        return $dir;
     }
 
     public function createFromUpload($file, $blogId)
@@ -27,17 +42,17 @@ class BlogPicture extends Model
 
     public function thumbnailPath()
     {
-        return $this->baseDir . 'tn_' . $this->filename;
+        return $this->baseDir() . 'tn_' . $this->filename;
     }
 
     public function imagePath()
     {
-        return $this->baseDir . $this->filename;
+        return $this->baseDir() . $this->filename;
     }
 
     public function baseDirectory()
     {
-        return public_path() . '/' . $this->baseDir;
+        return public_path() . '/' . $this->baseDir();
     }
 
     public function fullPath($filename = null)
