@@ -34,7 +34,7 @@ class BlogController extends Controller
     {
         $blog = Blog::where('slug', '=', $slug)->first();
         if (!$blog) {
-            return response(404);
+            abort(404);
         }
         return view('blog_entry', compact('blog'));
     }
