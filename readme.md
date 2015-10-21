@@ -11,9 +11,10 @@ If you do want to try the code out, clone the repo then do :
 1. `composer install`
 2. `mv .env.example .env`
 3. Edit .env to suit your setup
-4. `php artisan key:generate`
-5. `php artisan migrate`
-6. `chown -R www-data storage bootstrap/cache public/mt_images`
-7. `php artisan mtgallery:createadmin your@emailaddress.com`
-8. Browse to your site and log in at /admin/ to start creating galleries etc
+4. `mkdir public/uploaded_images` (or whatever you set in .env)
+5. `php artisan key:generate`
+6. `php artisan migrate`
+7. `chown -R www-data storage bootstrap/cache public/uploaded_images`
+8. `php artisan mtgallery:createadmin your@emailaddress.com`
+9. Browse to your site and log in at /admin/ to start creating galleries etc
 
