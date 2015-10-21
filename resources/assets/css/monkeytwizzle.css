@@ -49,8 +49,11 @@
     color: rgb(200,200,200);
     text-decoration: none;
 }
+#landing a:hover {
+    text-decoration: underline;
+}
 #landing h3 {
-    font-size: 3em;
+    font-size: 2.5em;
     color: rgb(100,100,100);
 }
 #bloglanding {
@@ -64,7 +67,7 @@
     text-decoration: none;
 }
 #bloglanding h3 {
-    font-size: 3em;
+    font-size: 2.5em;
     color: rgb(100,100,100);
 }
 .publicblog {
