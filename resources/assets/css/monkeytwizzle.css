@@ -5,7 +5,7 @@
 #menu {
     color: white;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.5em;
     text-align: center;
     font-family: 'Futura', 'Questrial', sans-serif;
     padding-top: 1em;
@@ -19,14 +19,16 @@
 #menu a:hover {
     opacity: 0.8;
 }
+#menu ul {
+    list-style: none;
+    display: flex;
+}
 #menu ul, #menu li {
-    display: inline;
+    margin: 0px;
+    padding: 0px;
 }
-#menu ul li:before {
- content: '\2219';
-}
-#menu ul li.last:after {
- content: ". ";
+#menu li {
+    flex: 1;
 }
 .fullBg {
     position: fixed;

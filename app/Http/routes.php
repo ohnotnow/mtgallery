@@ -4,10 +4,10 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/gallery', 'GalleryController@showRecent');
-Route::get('/gallery/{slug}', 'GalleryController@showGallery');
+Route::get('/gallery', ['as' => 'gallery.default', 'uses' => 'GalleryController@showRecent']);
+Route::get('/gallery/{slug}', ['as' => 'gallery.specific', 'uses' => 'GalleryController@showGallery']);
 
-Route::get('/blog', 'BlogController@publicIndex');
+Route::get('/blog', ['as' => 'blog', 'uses' => 'BlogController@publicIndex']);
 Route::get('/blog/feed', ['as' => 'blog.rss', 'uses' =>'BlogController@rssFeed']);
 Route::get('/blog/{slug}', ['as' => 'blog.view', 'uses' => 'BlogController@publicShow']);
 

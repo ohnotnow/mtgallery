@@ -9,11 +9,10 @@
 <body>
 <!--Thumbnail Navigation-->
     <div id="menu">
-        Galleries
         <ul>
-            <li><a href="/gallery"> Recent</a></li>
+            <li><a href="{!! route('gallery.default') !!}">Recent</a></li>
             @foreach ($galleries as $gallery)
-                <li><a href="/gallery/{{ $gallery->slug }}"> {{ $gallery->name }}</a></li>
+                <li><a href="{!! route('gallery.specific', $gallery->slug) !!}"> {{ $gallery->name }}</a></li>
             @endforeach
         </ul>
     </div>
@@ -29,9 +28,9 @@
     </div>
     <div id="controls-wrapper" class="load-item">
         <div id="controls">
-            <a id="play-button"><img id="pauseplay" src="{!! asset('supersized/slideshow/img/pause.png') !!}"/></a>
+            <a id="play-button"><img id="pauseplay" src="{!! asset('images/pause.png') !!}"/></a>
             <div id="slidecaption"></div>
-            <a id="tray-button"><img id="tray-arrow" src="{!! asset('supersized/slideshow/img/button-tray-up.png') !!}"/></a>
+            <a id="tray-button"><img id="tray-arrow" src="{!! asset('images/button-tray-up.png') !!}"/></a>
         </div>
     </div>
 </body>
