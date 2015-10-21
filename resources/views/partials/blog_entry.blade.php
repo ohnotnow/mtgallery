@@ -1,7 +1,7 @@
 <h3>
     <a href="/blog/{{ $blog->slug }}">{{ $blog->title }}</a>
 </h3>
-<p>
+<p class="publicblog">
     {!! $blog->getBody() !!}
 </p>
 <p class="text-right text-muted publicblogdate">

@@ -77,8 +77,8 @@
     margin-right: auto ;
 }
 .publicblog a {
-    color: rgb(200,200,200);
-    text-decoration: none;
+    color: rgb(220,220,220);
+    text-decoration: underline;
 }
 .publicblog a:hover {
     opacity: 0.9;
