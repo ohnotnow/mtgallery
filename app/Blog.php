@@ -3,6 +3,7 @@
 namespace App;
 
 use Carbon\Carbon;
+use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
@@ -37,5 +38,14 @@ class Blog extends Model
             $picture->removeFile();
             $picture->delete();
         }
+    }
+
+    /**
+     * Parse the blog body as markdown and return the html result
+     * @return string HTML version of the markdown
+     */
+    public function getBody()
+    {
+        return Markdown::convertToHtml($this->body);
     }
 }

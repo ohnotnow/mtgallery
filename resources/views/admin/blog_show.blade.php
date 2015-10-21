@@ -5,7 +5,7 @@
     <div class="row">
             <h3>Blog <a href="{!! route('admin.edit_blog', ['id' => $blog->id]) !!}">{{ $blog->title }}</a></h3>
             <div class="blog_body">
-                {{ $blog->body }}
+                {!! $blog->getBody() !!}
             </div>
     </div>
     <div class="row">

@@ -148,6 +148,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         'Roumen\Feed\FeedServiceProvider',
+        'GrahamCampbell\Markdown\MarkdownServiceProvider',
     ],
 
     /*
@@ -200,6 +201,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Feed' => 'Roumen\Feed\Facades\Feed',
+        'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown',
     ],
 
 ];
