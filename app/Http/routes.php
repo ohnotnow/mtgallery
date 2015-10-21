@@ -8,7 +8,8 @@ Route::get('/gallery', 'GalleryController@showRecent');
 Route::get('/gallery/{slug}', 'GalleryController@showGallery');
 
 Route::get('/blog', 'BlogController@publicIndex');
-Route::get('/blog/{slug}', 'BlogController@publicShow');
+Route::get('/blog/feed', ['as' => 'blog.rss', 'uses' =>'BlogController@rssFeed']);
+Route::get('/blog/{slug}', ['as' => 'blog.view', 'uses' => 'BlogController@publicShow']);
 
 Route::get('/auth/login', 'Auth\AuthController@getLogin');
 Route::post('/auth/login', 'Auth\AuthController@postLogin');

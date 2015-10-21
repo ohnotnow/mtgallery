@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\BlogPicture;
+use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Roumen\Feed\Facades\Feed;
 
 class BlogController extends Controller
 {
@@ -36,6 +37,31 @@ class BlogController extends Controller
             return response(404);
         }
         return view('blog_entry', compact('blog'));
+    }
+
+    /**
+     * Return the atom/rss feed of the blog
+     * @return atom/rss string
+     */
+    public function rssFeed()
+    {
+        $feed = Feed::make();
+        $feed->setCache(60, 'mtgalleryFeedKey');
+        if (!$feed->isCached()) {
+            $blogs = Blog::orderBy('created_at', 'desc')->get();
+            $feed->title = env('APP_TITLE') . ' - Blog';
+            $feed->description = 'Blog about Monkeytwizzle photography';
+            $feed->link = route('blog.rss');
+            $feed->setDateFormat('datetime');
+            $feed->pubdate = $blogs[0]->created_at;
+            $feed->lang = 'en';
+            $feed->setShortening(true);
+            $feed->setTextLimit(100);
+            foreach ($blogs as $blog) {
+                $feed->add($blog->title, 'Me', route('blog.view', ['slug' => $blog->slug]), $blog->created_at, $blog->body, $blog->body);
+            }
+        }
+        return $feed->render('atom');
     }
 
     /*** Admin Stuff ***/

@@ -28,6 +28,14 @@ class PublicCanViewTheFrontFacingContentTest extends TestCase
              ->see($blog->body);
     }
 
+    public function testPublicCanViewTheBlogRssFeed()
+    {
+        $blog = factory(App\Blog::class)->make();
+        $blog->save();
+        $this->visit('/blog/feed')
+             ->see($blog->title);
+    }
+
     public function testPublicCanViewThePhotographs()
     {
         $photo = factory(App\Photo::class)->make();

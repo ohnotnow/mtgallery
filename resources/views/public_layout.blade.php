@@ -3,6 +3,7 @@
     <title>{!! env('APP_TITLE') !!}</title>
     <link rel="stylesheet" href="{!! asset('public.css') !!}">
     <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/atom+xml" title="Blog" href="{!! route('blog.rss') !!}" />
 </head>
 <body>
     @yield('content')
