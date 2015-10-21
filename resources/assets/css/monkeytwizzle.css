@@ -78,10 +78,14 @@
 }
 .publicblog a {
     color: rgb(220,220,220);
-    text-decoration: underline;
+    text-decoration: none;
 }
 .publicblog a:hover {
     opacity: 0.9;
+    text-decoration: underline;
+}
+.publicblogbody a {
+    color: rgb(220,220,220);
     text-decoration: underline;
 }
 .publicblogdate {
