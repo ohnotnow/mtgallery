@@ -30,6 +30,7 @@
 #menu li {
     flex: 1;
 }
+
 .fullBg {
     position: fixed;
     bottom: 0;

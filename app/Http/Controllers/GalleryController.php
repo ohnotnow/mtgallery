@@ -110,7 +110,8 @@ class GalleryController extends Controller
         $galleries = Gallery::orderBy('name')->get();
         $json = $this->getPhotosAsJson(Photo::getRecent());
         $pageTitle = ' - Recent Photographs';
-        return view('slideshow', compact('json', 'galleries', 'pageTitle'));
+        $currentGallery = '';
+        return view('slideshow', compact('json', 'galleries', 'pageTitle', 'currentGallery'));
     }
 
     /**
@@ -127,7 +128,8 @@ class GalleryController extends Controller
         }
         $json = $this->getPhotosAsJson($gallery->photos);
         $pageTitle = " - {$gallery->name}";
-        return view('slideshow', compact('json', 'galleries', 'pageTitle'));
+        $currentGallery = $gallery->id;
+        return view('slideshow', compact('json', 'galleries', 'pageTitle', 'currentGallery'));
     }
 
     /**

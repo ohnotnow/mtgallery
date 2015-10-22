@@ -12,7 +12,7 @@
         <ul>
             <li><a href="{!! route('gallery.default') !!}">Recent</a></li>
             @foreach ($galleries as $gallery)
-                <li><a href="{!! route('gallery.specific', $gallery->slug) !!}"> {{ $gallery->name }}</a></li>
+                <li><a href="{!! route('gallery.specific', $gallery->slug) !!}" @if ($currentGallery == $gallery->id) style="text-decoration: underline;" @endif> {{ $gallery->name }}</a></li>
             @endforeach
         </ul>
     </div>
