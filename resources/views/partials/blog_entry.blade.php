@@ -1,5 +1,5 @@
 <h3>
-    <a href="/blog/{{ $blog->slug }}">{{ $blog->title }}</a>
+    <a href="{!! route('blog.view', ['slug' => $blog->slug]) !!}">{{ $blog->title }}</a>
 </h3>
 <p class="publicblogbody">
     {!! $blog->getBody() !!}

@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <h3>Edit Photo {{ $photo->name }}</h3>
-        {!! Form::model($photo, array('url' => '/admin/photo/' . $photo->id . '/edit')) !!}
+        {!! Form::model($photo, ['route' => ['admin.update_photo', $photo->id]]) !!}
                 <div class="form-group">
                     <label for="name">Photo Name</label>
                     {!! Form::text('name', $photo->name, ['class' => 'form-control']) !!}
@@ -22,9 +22,9 @@
                 <button type="submit" class="btn btn-primary" id="submit">Save Changes</button>
         {!! Form::close() !!}
         <hr />
-        <img src="{!! asset('mt_photos/' . $photo->filename) !!}" />
+        <img src="{!! asset($photo->imagePath()) !!}" />
         <hr />
-        {!! Form::open(array('url' => '/admin/photo/' . $photo->id, 'method' => 'DELETE')) !!}
+        {!! Form::open(['route' => ['admin.delete_photo', $photo->id], 'method' => 'DELETE']) !!}
             <button type="submit" class="btn btn-danger" id="delete">Delete Photograph</button>
         {!! Form::close() !!}
         <hr />

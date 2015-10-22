@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        {!! Form::model($gallery, array('url' => '/admin/gallery/add')) !!}
+        {!! Form::model($gallery, ['route' => ['admin.create_gallery']]) !!}
                 <div class="form-group">
                     <label for="name">Gallery Name</label>
                     <input type="text" name="name" class="form-control" id="">

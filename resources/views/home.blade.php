@@ -2,8 +2,8 @@
 @section('content')
 <div id="landing">
     <h3 id="title">Monkeytwizzle Photography</h3>
-    <a id="link1" href="/gallery">Photographs</a> |
-    <a id="link2" href="/blog">Blog</a> |
+    <a id="link1" href="{!! route('gallery.default') !!}">Photographs</a> |
+    <a id="link2" href="{!! route('blog') !!}">Blog</a> |
     <a id="aboutlink" href="#">About</a> |
     <a id="contactlink" href="#">Contact</a>
 </div>

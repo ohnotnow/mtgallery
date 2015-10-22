@@ -1,5 +1,5 @@
 <h3>
-    <a href="/admin/blog/{{ $blog->id }}/edit">{{ $blog->title }}</a>
+    <a href="{!! route('admin.edit_blog', $blog->id) !!}">{{ $blog->title }}</a>
 </h3>
 <p>
     {!! $blog->getBody() !!}

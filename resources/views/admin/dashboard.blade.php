@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <a class="btn btn-primary" href="/admin/gallery/add">Add Gallery</a>
+        <a class="btn btn-primary" href="{!! route('admin.add_gallery') !!}">Add Gallery</a>
         <h3>Current Galleries</h3>
         <table class="table table-striped">
             <tr>
@@ -12,7 +12,7 @@
             </tr>
             @foreach ($galleries as $gallery)
                 <tr>
-                    <td><a href="/admin/gallery/{{ $gallery->id }}">{{ $gallery->name }}</a></td>
+                    <td><a href="{!! route('admin.show_gallery', $gallery->id) !!}">{{ $gallery->name }}</a></td>
                     <td>{{ count($gallery->photos) }}</td>
                 </tr>
             @endforeach

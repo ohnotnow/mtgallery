@@ -5,10 +5,10 @@
     <div class="row">
             <h3>Edit Blog
                 <span style="float:right">
-                    <a class="btn btn-danger" href="/admin/blog/{{ $blog->id }}/delete">Delete Blog</a>
+                    <a class="btn btn-danger" href="{!! route('admin.delete_blog', $blog->id) !!}">Delete Blog</a>
                 </span>
             </h3>
-        {!! Form::model($blog, array('url' => "/admin/blog/{$blog->id}/edit")) !!}
+        {!! Form::model($blog, ['route' => ["admin.update_blog", $blog->id]]) !!}
                 <div class="form-group">
                     <label for="name">Blog Title</label>
                     <input type="text" name="title" class="form-control" value="{{ $blog->title }}">
@@ -22,7 +22,7 @@
                 <p class=" text-right"></p>
         {!! Form::close() !!}
         <h3>Add Photos</h3>
-        {!! Form::open(array('url' => "/admin/blog/{$blog->id}/addphoto", 'class' => 'dropzone')) !!}
+        {!! Form::open(['route' => ['admin.add_photo_to_blog', $blog->id], 'class' => 'dropzone']) !!}
         {!! Form::close() !!}
     </div>
 </div>
