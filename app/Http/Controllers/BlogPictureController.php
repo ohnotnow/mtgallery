@@ -40,6 +40,6 @@ class BlogPictureController extends Controller
         $photo = BlogPicture::findOrFail($id);
         $photo->removeFile();
         $photo->delete();
-        return redirect('/admin/blog');
+        return redirect()->route('admin.show_blog', $blogId);
     }
 }
