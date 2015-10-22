@@ -11,9 +11,8 @@ class PublicCanViewTheFrontFacingContentTest extends TestCase
     public function testPublicCanViewTheHomepage()
     {
         $this->visit('/')
-             ->see('Monkeytwizzle Photography')
-             ->see('Blog')
-             ->see('Glasgow');
+             ->see(env('APP_TITLE'))
+             ->see('Blog');
     }
 
     public function testPublicCanViewTheBlog()
