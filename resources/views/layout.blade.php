@@ -23,7 +23,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function(){
             //$.datetimepicker.setLocale('en');
-            $('#publish_at').datetimepicker();
+            $('#publish_at').datetimepicker({format: "Y-m-d H:i"});
         });
     </script>
 </body>
