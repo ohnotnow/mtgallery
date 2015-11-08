@@ -21,6 +21,7 @@ elixir(function(mix) {
     	'jquery.js',
     	'bootstrap.min.js',
     	'dropzone.js',
+        'xdsoft_datetimepicker.js',
     	'select2.min.js'
     ], './public/admin.js');
     mix.scripts([
@@ -43,6 +44,7 @@ elixir(function(mix) {
     	'monkeytwizzle.css',
     	'bootstrap.css',
     	'dropzone.css',
+        'xdsoft_datetimepicker.css',
     	'select2.min.css'
     ], './public/admin.css');
 });

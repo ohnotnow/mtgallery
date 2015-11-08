@@ -13,6 +13,10 @@
                     <label for="name">Blog</label>
                     <textarea name="body" class="form-control" rows="10"></textarea>
                 </div>
+                <div class="form-group">
+                    <label for="name">Publish At</label>
+                    <input type="text" id="publish_at" name="publish_at" class="form-control">
+                </div>
                 <button type="submit" class="btn btn-primary" id="submit">Add blog</button>
             </form>
         {!! Form::close() !!}

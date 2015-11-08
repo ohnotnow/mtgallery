@@ -20,5 +20,11 @@
         @yield('content')
 	</div><!-- container -->
     <script src="{{ asset('admin.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            //$.datetimepicker.setLocale('en');
+            $('#publish_at').datetimepicker();
+        });
+    </script>
 </body>
 </html>
