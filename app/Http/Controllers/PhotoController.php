@@ -81,4 +81,24 @@ class PhotoController extends Controller
         $photo->delete();
         return redirect()->route('admin.index_photos');
     }
+
+    public function bulkEdit()
+    {
+        $photos = Photo::with('galleries')->orderBy('created_at', 'desc')->get();
+        $galleries = Gallery::orderBy('name')->get();
+        return view('admin.photo_bulk_edit', compact('photos', 'galleries'));
+    }
+
+    public function bulkUpdate(Request $request)
+    {
+        foreach ($request->name as $id => $name) {
+            $photo = Photo::findOrFail($id);
+            $photo->name = $name;
+            $photo->save();
+            if ($request->has("galleries.$id")) {
+                $photo->galleries()->sync($request->galleries[$id]);
+            }
+        }
+        return redirect()->route('admin.index_photos');
+    }
 }

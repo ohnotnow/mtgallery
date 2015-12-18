@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     Route::get('/photo', ['as' => 'admin.index_photos','uses' => 'PhotoController@index']);
     Route::post('/photo', ['as' => 'admin.create_photo', 'uses' => 'PhotoController@store']);
+    Route::get('/photo/bulkedit', ['as' => 'admin.bulk_edit_photos', 'uses' => 'PhotoController@bulkEdit']);
+    Route::post('/photo/bulkedit', ['as' => 'admin.bulk_update_photos', 'uses' => 'PhotoController@bulkUpdate']);
     Route::delete('/photo/{id}', ['as' => 'admin.delete_photo', 'uses' => 'PhotoController@destroy']);
     Route::get('/photo/{id}/edit', ['as' => 'admin.edit_photo', 'uses' => 'PhotoController@edit']);
     Route::post('/photo/{id}/edit', ['as' => 'admin.update_photo', 'uses' => 'PhotoController@update']);
