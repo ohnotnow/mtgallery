@@ -21,7 +21,7 @@ class BlogController extends Controller
      */
     public function publicIndex()
     {
-        $blogs = Blog::orderBy('created_at', 'desc')->get();
+        $blogs = Blog::published()->orderBy('created_at', 'desc')->get();
         return view('blog', compact('blogs'));
     }
 
@@ -48,7 +48,7 @@ class BlogController extends Controller
         $feed = Feed::make();
         $feed->setCache(60, 'mtgalleryFeedKey');
         if (!$feed->isCached()) {
-            $blogs = Blog::orderBy('created_at', 'desc')->get();
+            $blogs = Blog::published()->orderBy('created_at', 'desc')->get();
             $feed->title = env('APP_TITLE') . ' - Blog';
             $feed->description = env('BLOG_DESCRIPTION');
             $feed->link = route('blog.rss');
@@ -100,6 +100,7 @@ class BlogController extends Controller
         $blog->title = $request->input('title');
         $blog->body = $request->input('body');
         $blog->slug = $blog->createSlug();
+        $blog->publish_at = $request->publish_at;
         $blog->save();
         return redirect()->route('admin.show_blog', $blog->id);
     }
@@ -141,6 +142,7 @@ class BlogController extends Controller
         $blog->title = $request->input('title');
         $blog->body = $request->input('body');
         $blog->slug = $blog->createSlug();
+        $blog->publish_at = $request->publish_at;
         $blog->save();
         return redirect()->route('admin.show_blog', $blog->id);
     }

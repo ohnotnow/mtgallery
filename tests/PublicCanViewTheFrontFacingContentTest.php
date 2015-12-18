@@ -19,9 +19,11 @@ class PublicCanViewTheFrontFacingContentTest extends TestCase
     {
         $blog = factory(App\Blog::class)->make();
         $blog->save();
+        $blog2 = factory(App\Blog::class)->create(['publish_at' => \Carbon\Carbon::now()->addYear()]);
         $this->visit('/')
              ->click('Blog')
              ->see($blog->title)
+             ->dontSee($blog2->title)
              ->click($blog->title)
              ->see($blog->title)
              ->see($blog->body);
@@ -31,8 +33,10 @@ class PublicCanViewTheFrontFacingContentTest extends TestCase
     {
         $blog = factory(App\Blog::class)->make();
         $blog->save();
+        $blog2 = factory(App\Blog::class)->create(['publish_at' => \Carbon\Carbon::now()->addYear()]);
         $this->visit('/blog/feed')
-             ->see($blog->title);
+             ->see($blog->title)
+             ->dontSee($blog2->title);
     }
 
     public function testPublicCanViewThePhotographs()

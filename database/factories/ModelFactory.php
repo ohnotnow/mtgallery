@@ -38,5 +38,6 @@ $factory->define(App\Blog::class, function (Faker\Generator $faker) {
         'title' => $faker->name,
         'body' => $faker->text,
         'slug' => $faker->slug,
+        'publish_at' => \Carbon\Carbon::now()
     ];
 });

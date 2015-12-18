@@ -17,7 +17,10 @@
                     <label for="name">Blog</label>
                     <textarea name="body" class="form-control" rows="10">{{ $blog->body }}</textarea>
                 </div>
-
+                <div class="form-group">
+                    <label for="name">Publish At</label>
+                    <input type="text" id="publish_at" name="publish_at" class="form-control" value="{{ $blog->publish_at }}">
+                </div>
                 <button type="submit" class="btn btn-primary" id="submit">Update blog</button>
                 <p class=" text-right"></p>
         {!! Form::close() !!}

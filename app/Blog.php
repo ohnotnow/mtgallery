@@ -17,6 +17,11 @@ class Blog extends Model
         return $this->hasMany(\App\BlogPicture::class);
     }
 
+    public function scopePublished($query)
+    {
+        return $query->where('publish_at', '<=', Carbon::now());
+    }
+
     /**
      * Create a uniform slug for the blog post
      * @return string A slug
