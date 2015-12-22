@@ -64,4 +64,32 @@ class AdminCanAddEditAndRemoveAPhotoTest extends TestCase
              ->see('Index of All Photos')
              ->dontSee($photo->name);
     }
+
+    public function testCanBulkUpdatePhotos()
+    {
+        $user = factory(App\User::class)->create();
+        $gallery = factory(App\Gallery::class)->create();
+        $gallery2 = factory(App\Gallery::class)->create();
+        $photo = factory(App\Photo::class)->create();
+        $photo->galleries()->sync([$gallery->id]);
+        $newData = [
+            'name' => [ $photo->id => 'QPQPQPQP' ],
+            "galleries[{$photo->id}]" => [$gallery->id, $gallery2->id]
+        ];
+        var_dump($newData);
+        $this->actingAs($user)
+             ->visit('/admin')
+             ->click('Photographs')
+             ->see($photo->name)
+             ->see($gallery->name)
+             ->dontSee($gallery2->name)
+             ->click('Bulk Edit')
+             ->see('Bulk Edit Photographs')
+             ->submitForm($newData)
+             ->see('Photographs')
+             ->see('QPQPQPQP')
+             ->see($gallery->name)
+             ->see($gallery2->name)
+             ->dontSee($photo->name);
+    }
 }
