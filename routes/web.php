@@ -12,9 +12,9 @@ Route::get('/blog/feed', ['as' => 'blog.rss', 'uses' =>'BlogController@rssFeed']
 Route::get('/blog/{slug}', ['as' => 'blog.view', 'uses' => 'BlogController@publicShow']);
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/auth/login', 'Auth\AuthController@getLogin');
-    Route::post('/auth/login', 'Auth\AuthController@postLogin');
-    Route::get('/auth/logout', 'Auth\AuthController@getLogout');
+//    Route::get('/auth/login', 'Auth\AuthController@getLogin');
+//    Route::post('/auth/login', 'Auth\AuthController@postLogin');
+//    Route::get('/auth/logout', 'Auth\AuthController@getLogout');
 
     Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('/', ['as' => 'admin.dashboard', 'uses' => 'AdminController@dashboard']);
@@ -45,3 +45,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('/blog/{id}/delete', ['as' => 'admin.delete_blog', 'uses' => 'BlogController@destroy']);
     });
 });
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index');

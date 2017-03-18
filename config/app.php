@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'My Application',
+    'name' => 'Monkeytwizzle Photography',
 
     /*
     |--------------------------------------------------------------------------
@@ -138,7 +138,7 @@ return [
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
         Illuminate\Hashing\HashServiceProvider::class,
         Illuminate\Mail\MailServiceProvider::class,
-        Illuminate\Notifications\NotificationServiceProvider::class,
+//        Illuminate\Notifications\NotificationServiceProvider::class,
         Illuminate\Pagination\PaginationServiceProvider::class,
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
@@ -162,6 +162,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         'Roumen\Feed\FeedServiceProvider',
         'GrahamCampbell\Markdown\MarkdownServiceProvider',
+        //'GrahamCampbell\Markdown\MarkdownServiceProvider',
     ],
 
     /*
@@ -197,7 +198,7 @@ return [
         'Lang'      => Illuminate\Support\Facades\Lang::class,
         'Log'       => Illuminate\Support\Facades\Log::class,
         'Mail'      => Illuminate\Support\Facades\Mail::class,
-        'Notification' => Illuminate\Support\Facades\Notification::class,
+        //'Notification' => Illuminate\Support\Facades\Notification::class,
         'Password'  => Illuminate\Support\Facades\Password::class,
         'Queue'     => Illuminate\Support\Facades\Queue::class,
         'Redirect'  => Illuminate\Support\Facades\Redirect::class,
@@ -214,7 +215,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'Feed' => 'Roumen\Feed\Facades\Feed',
+        'Feed' => Roumen\Feed\Feed::class,
         'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown',
     ],
 
