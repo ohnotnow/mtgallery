@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class PublicCanViewTheFrontFacingContentTest extends TestCase
+class PublicCanViewTheFrontFacingContentTest extends BrowserKitTestCase
 {
     use DatabaseTransactions;
 
