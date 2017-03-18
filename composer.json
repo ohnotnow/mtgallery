@@ -22,7 +22,6 @@
         "phpunit/phpunit": "~5.7",
         "symfony/dom-crawler": "~3.0",
         "symfony/css-selector": "~3.0",
-        "phpspec/phpspec": "~2.1",
         "laravel/browser-kit-testing": "^1.0"
     },
     "autoload": {
