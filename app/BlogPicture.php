@@ -84,11 +84,11 @@ class BlogPicture extends Model
             $constraint->aspectRatio();
             $constraint->upsize();
         })->text($tag, 12, 22, function ($font) {
-            $font->color(array(0, 0, 0, 0.5));
+            $font->color([0, 0, 0, 0.5]);
             $font->align('left');
             $font->valign('bottom');
         })->text($tag, 10, 20, function ($font) {
-            $font->color(array(255, 255, 255, 0.5));
+            $font->color([255, 255, 255, 0.5]);
             $font->align('left');
             $font->valign('bottom');
         })->save();

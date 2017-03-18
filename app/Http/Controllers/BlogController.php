@@ -7,7 +7,7 @@ use App\BlogPicture;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use Roumen\Feed\Facades\Feed;
+use Feed;
 
 class BlogController extends Controller
 {
@@ -45,7 +45,7 @@ class BlogController extends Controller
      */
     public function rssFeed()
     {
-        $feed = Feed::make();
+        $feed = app('feed');
         $feed->setCache(60, 'mtgalleryFeedKey');
         if (!$feed->isCached()) {
             $blogs = Blog::published()->orderBy('created_at', 'desc')->get();
