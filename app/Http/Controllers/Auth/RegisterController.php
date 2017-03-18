@@ -1,7 +1,7 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
+exit;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
