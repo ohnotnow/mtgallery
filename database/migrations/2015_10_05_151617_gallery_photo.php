@@ -20,7 +20,6 @@ class GalleryPhoto extends Migration
             $table->foreign('photo_id')->references('id')->on('photos')->onDelete('cascade');
             $table->timestamps();
         });
-
     }
 
     /**

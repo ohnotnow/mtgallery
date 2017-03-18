@@ -45,4 +45,3 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('/blog/{id}/delete', ['as' => 'admin.delete_blog', 'uses' => 'BlogController@destroy']);
     });
 });
-
