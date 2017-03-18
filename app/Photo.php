@@ -41,7 +41,7 @@ class Photo extends Model
      */
     public function galleryList()
     {
-        return $this->galleries()->lists('gallery_id')->toArray();
+        return $this->galleries()->pluck('gallery_id')->toArray();
     }
 
     /**
