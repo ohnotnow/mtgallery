@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\Authorizable;
@@ -10,6 +11,7 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract
 {
+    use Notifiable;
     use Authenticatable, Authorizable;
 
     /**
