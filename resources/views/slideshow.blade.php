@@ -2,7 +2,7 @@
 <head>
     <title>
         {!! env('APP_TITLE') !!}
-        {{ $pageTitle or '' }}
+        {{ $pageTitle ?? '' }}
     </title>
     <link rel="stylesheet" href="{!! asset('slideshow.css') !!}">
 </head>
